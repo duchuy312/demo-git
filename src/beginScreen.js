@@ -2,6 +2,7 @@ import React from 'react';
 import {View, Text, ImageBackground, TouchableOpacity} from 'react-native';
 import styles from './home.style';
 import {useNavigation} from '@react-navigation/native';
+import {Icon} from '../svg/icon';
 
 const Begin = () => {
   const navigation = useNavigation();

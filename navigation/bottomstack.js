@@ -56,7 +56,7 @@ function bottomTab() {
           paddingBottom: 5,
         },
       }}>
-      <Tab.Screen name="Lesson" component={DetailNavigation} />
+      <Tab.Screen name="Lesson" component={Lesson} />
       <Tab.Screen name="Test" component={TestDetailNavigation} />
       <Tab.Screen name="New" component={New} />
       <Tab.Screen name="User" component={User} />

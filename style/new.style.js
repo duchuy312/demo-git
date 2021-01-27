@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     marginTop: scale(50),
   },
   textContainer: {
-    height: scale(195),
+    height: scale(260),
     width: scale(320),
     alignSelf: 'center',
   },
@@ -102,6 +102,7 @@ const styles = StyleSheet.create({
     borderRadius: scale(15),
     marginVertical: scale(8),
     borderRightColor: '#d3d4d4',
+    height: scale(200),
     elevation: scale(5),
   },
   viewTest: {
@@ -122,6 +123,8 @@ const styles = StyleSheet.create({
     height: scale(90),
     width: scale(159),
     overflow: 'hidden',
+    borderTopLeftRadius: scale(15),
+    borderTopRightRadius: scale(15),
   },
   searchBar: {
     height: scale(60),
@@ -129,6 +132,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#3b7ad0',
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'center',
   },
   iconPosition: {
     marginLeft: scale(8),
@@ -179,7 +183,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   choiceContainer: {
-    marginTop: scale(80),
+    marginTop: '30%',
     height: scale(400),
     width: scale(350),
     alignItems: 'center',
@@ -270,6 +274,7 @@ const styles = StyleSheet.create({
     color: 'white',
     fontWeight: 'bold',
     textAlign: 'center',
+    fontSize: scale(18),
   },
   modalText: {
     fontSize: scale(16),
@@ -305,6 +310,16 @@ const styles = StyleSheet.create({
   dropdowntext: {
     fontSize: scale(14),
     marginBottom: scale(5),
+  },
+  hideButton: {
+    marginTop: scale(100),
+    marginLeft: scale(280),
+    justifyContent: 'center',
+    width: scale(60),
+    height: scale(60),
+    borderRadius: scale(30),
+    padding: 10,
+    backgroundColor: 'rgba(100,100,100, 0.5)',
   },
 });
 

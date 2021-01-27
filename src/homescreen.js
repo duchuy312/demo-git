@@ -25,7 +25,7 @@ const Home = () => {
       .then(function (response) {
         console.log(response);
         if (response.data[0].pass === pass) {
-          navigation.navigate('bottomTab');
+          navigation.navigate('DetailNavigation');
         } else {
           console.log(
             'Đăng nhập thất bại, vui lòng kiểm tra lại tên tài khoản hoặc mật khẩu !!!',

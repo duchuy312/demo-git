@@ -85,7 +85,7 @@ const Register = () => {
       </TouchableOpacity>
       <View style={styles.centerText}>
         <Text>Đã Có Tài Khoản ? </Text>
-        <TouchableOpacity onPress={navigation.goBack()}>
+        <TouchableOpacity onPress={() => navigation.navigate('Home')}>
           <Text style={styles.linktext}>Đăng Nhập</Text>
         </TouchableOpacity>
       </View>

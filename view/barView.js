@@ -87,11 +87,11 @@ export const BarView = (props) => {
               </View>
             ) : null}
             <TouchableOpacity
-              style={styles.openButton}
+              style={styles.hideButton}
               onPress={() => {
                 setModalVisible(!modalVisible);
               }}>
-              <Text style={styles.textStyle}>OK</Text>
+              <Text style={styles.textStyle}>Hide</Text>
             </TouchableOpacity>
           </View>
         </View>

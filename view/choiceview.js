@@ -23,10 +23,12 @@ export const ChoiceView = (props) => {
   const [color1, setColor1] = useState('white');
   const [color2, setColor2] = useState('white');
   const [pressed, setPressed] = useState(false);
+  const [pressed1, setPressed1] = useState(false);
   const [verify, setVerify] = useState(false);
   const [verificationCode, setVerificationCode] = useState('');
   const [textModal, setTextModal] = useState('');
   const [code, setCode] = useState('');
+  const [check, setCheck] = useState([]);
   function OtpCode() {
     var otp = Math.floor(100000 + Math.random() * 900000);
     setVerificationCode(otp);
@@ -40,16 +42,8 @@ export const ChoiceView = (props) => {
 
   //   // Call function type prop with return values.
   // };
-  const changeColor = () => {
-    if (!pressed) {
-      setPressed(true);
-      setColor1('#48e650');
-      setColor2('white');
-    } else {
-      setPressed(false);
-      setColor1('white');
-      setColor2('#48e650');
-    }
+  const changeColor = (stt, radio) => {
+    check[stt] = radio;
   };
   function checkCode(code1, code2) {
     console.log('check');
@@ -78,13 +72,17 @@ export const ChoiceView = (props) => {
         <View style={styles.circle}>
           <TouchableOpacity
             onPress={() => [
-              changeColor(),
+              setPressed(!pressed),
+              setPressed1(false),
               OtpCode(),
-              setModal2Visible(true),
+              !pressed ? setModal2Visible(true) : null,
               setShouldShow(!shouldShow),
               setTextModal('Đăng ký thành công!'),
             ]}
-            style={[styles.circleTouch, {backgroundColor: color1}]}
+            style={[
+              styles.circleTouch,
+              {backgroundColor: pressed ? '#56ff3c' : 'white'},
+            ]}
           />
         </View>
         <Text style={styles.textchoice}>{optionname1}</Text>
@@ -93,18 +91,21 @@ export const ChoiceView = (props) => {
         <View style={styles.circle}>
           <TouchableOpacity
             onPress={() => [
-              changeColor(),
+              setPressed1(!pressed1),
+              setPressed(false),
               setShouldShow(false),
               setTextModal(
-                'Gửi đăng ký thành công! Hãy chờ được phê duyệt để vào thi',
+                'Gửi đăng ký thành công! Hãy chờ được phê duyệt để tiếp tục',
               ),
             ]}
-            style={[styles.circleTouch, {backgroundColor: color2}]}
+            style={[
+              styles.circleTouch,
+              {backgroundColor: pressed1 ? '#56ff3c' : 'white'},
+            ]}
           />
         </View>
         <Text style={styles.textchoice}>{optionname2}</Text>
       </View>
-      
       {shouldShow ? (
         <View style={styles.codeInput}>
           <TextInput
@@ -167,7 +168,7 @@ export const ChoiceView = (props) => {
         }}>
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
-            <Text style={styles.modalText}>
+            <Text style={(styles.modalText, {color: 'red'})}>
               Mã lớp bạn nhập không chính xác Hãy thử lại!
             </Text>
             <TouchableOpacity
@@ -183,7 +184,11 @@ export const ChoiceView = (props) => {
 
       <TouchableOpacity
         style={styles.button}
-        onPress={() => checkCode(verificationCode.toString(), code.toString())}>
+        onPress={() =>
+          pressed
+            ? checkCode(verificationCode.toString(), code.toString())
+            : setModalVisible(true)
+        }>
         <Text style={styles.buttonText}>Gửi yêu cầu</Text>
       </TouchableOpacity>
     </View>
