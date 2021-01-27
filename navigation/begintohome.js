@@ -6,6 +6,7 @@ import Home from '../src/homescreen';
 import bottomTab from '../navigation/bottomstack';
 import Register from '../src/registerScreen';
 import ForgotPass from '../src/forgotPass';
+import DetailNavigation from './lessondetail';
 
 const Stack = createStackNavigator();
 
@@ -15,7 +16,7 @@ function beginNavigation() {
       <Stack.Navigator headerMode="none">
         <Stack.Screen name="Begin" component={Begin} />
         <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="bottomTab" component={bottomTab} />
+        <Stack.Screen name="DetailNavigation" component={DetailNavigation} />
         <Stack.Screen name="Register" component={Register} />
         <Stack.Screen name="ForgotPass" component={ForgotPass} />
       </Stack.Navigator>

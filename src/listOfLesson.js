@@ -1,13 +1,11 @@
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 import {
   View,
   Text,
-  ImageBackground,
   TouchableOpacity,
   FlatList,
-  Image,
-  Modal,
-  Alert,
+  Animated,
+  PanResponder,
 } from 'react-native';
 import {TextInput} from 'react-native-gesture-handler';
 import styles from '../style/lesson.style';
@@ -95,6 +93,20 @@ const ListOfLesson = () => {
   const [modalVisible, setModalVisible] = useState(true);
   const navigation = useNavigation();
   const [LessonId, setLessonId] = useState('');
+  const [shouldShow, setShouldShow] = useState(false);
+  // const pan = useRef(new Animated.ValueXY()).current;
+  // const panResponder = useRef(
+  //   PanResponder.create({
+  //     onMoveShouldSetPanResponder: () => true,
+  //     onPanResponderMove: Animated.event([
+  //       null,
+  //       {dx: pan.x, dy: pan.y, useNativeDriver: true},
+  //     ]),
+  //     onPanResponderRelease: () => {
+  //       Animated.spring(pan, {toValue: {x: 0, y: 0}}).start();
+  //     },
+  //   }),
+  // ).current;
   const renderItem = ({item}) => {
     return (
       <View style={styles.dataLesson}>
@@ -128,6 +140,7 @@ const ListOfLesson = () => {
         keyExtractor={(item) => item.id}
         extraData={LessonId}
       />
+
       <TouchableOpacity
         style={styles.button}
         onPress={() => navigation.navigate('EndTest')}>

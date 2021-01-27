@@ -14,7 +14,6 @@ import {ClockIcon, StarIcon} from '../svg/icon';
 import {scale} from 'react-native-size-matters';
 import BarView from '../view/barView';
 import axios from 'axios';
-import AsyncStorage from '@react-native-community/async-storage';
 
 const Lesson = () => {
   const navigation = useNavigation();
@@ -23,9 +22,24 @@ const Lesson = () => {
   const [refresh, setRefresh] = useState(true);
   const [time, setTime] = useState([]);
   const [getting, setGetting] = useState(false);
-  const token =
-    'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInNjb3BlcyI6IlJPTEVfU1VQRVJfQURNSU4iLCJ1bml0IjoiMSIsImlkIjoxNTA3NDIsIkZVTExfTkFNRSI6IkFkbWluIiwiaWF0IjoxNjExMjc3NzYwLCJleHAiOjE2MTEzNjQxNjB9.9y70naixEyXdSzL-CrbHvIH_Mge_3m0IBDvbC-CP5ZA';
+  const [token, setToken] = useState('');
+
   const getCourse = async () => {
+    await axios
+      .post('http://elearning-uat.vnpost.vn/api/authentication', {
+        username: 'admin',
+        password: 'Abc12345',
+      })
+      .then(function (response) {
+        console.log(response.data.data.token);
+        setToken(response.data.data.token);
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
+      .then(function () {
+        // always executed
+      });
     await axios
       .post(
         'http://elearning-uat.vnpost.vn/api/course',
