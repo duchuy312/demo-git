@@ -11,7 +11,7 @@ export const Backbar = (props) => {
   const navigation = useNavigation();
   const {title, title1} = props;
   return (
-    <View style={styles.searchBar}>
+    <View style={styles.backBar}>
       <TouchableOpacity
         onPress={() => navigation.goBack()}
         style={styles.iconPosition}>

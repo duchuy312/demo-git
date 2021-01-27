@@ -134,6 +134,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  backBar: {
+    height: scale(60),
+    width: scale(350),
+    backgroundColor: '#3b7ad0',
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
   iconPosition: {
     marginLeft: scale(8),
     marginRight: scale(8),

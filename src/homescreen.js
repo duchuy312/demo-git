@@ -17,14 +17,13 @@ const Home = () => {
   console.log(name);
   const LoginConfirm = () => {
     axios
-      .get('https://600685103698a80017de189e.mockapi.io/api/demo/UsersData', {
-        params: {
-          username: name,
-        },
+      .post('http://elearning-uat.vnpost.vn/api/authentication', {
+        username: name,
+        password: pass,
       })
       .then(function (response) {
         console.log(response);
-        if (response.data[0].pass === pass) {
+        if (response.status === 200) {
           navigation.navigate('DetailNavigation');
         } else {
           console.log(
