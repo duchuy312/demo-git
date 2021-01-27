@@ -104,7 +104,6 @@ export const ChoiceView = (props) => {
         </View>
         <Text style={styles.textchoice}>{optionname2}</Text>
       </View>
-      
       {shouldShow ? (
         <View style={styles.codeInput}>
           <TextInput
