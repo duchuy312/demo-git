@@ -72,12 +72,7 @@ const Test = () => {
     const backgroundColor = item.id === LessonId ? '#2C2F2E' : 'white';
     return (
       <TouchableOpacity
-        onPress={() =>
-          navigation.navigate('TestDetail', {
-            time: item.time,
-            testtime: item.testtime,
-          })
-        }
+        onPress={() => navigation.navigate('TestDetail')}
         style={[styles.itemTest, {backgroundColor}]}>
         <Image style={styles.imageTest} source={item.image} />
         <View style={styles.viewTest}>

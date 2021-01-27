@@ -14,7 +14,6 @@ import {ClockIcon, StarIcon} from '../svg/icon';
 import {scale} from 'react-native-size-matters';
 import BarView from '../view/barView';
 import axios from 'axios';
-import AsyncStorage from '@react-native-community/async-storage';
 
 const Lesson = () => {
   const navigation = useNavigation();
@@ -24,7 +23,7 @@ const Lesson = () => {
   const [time, setTime] = useState([]);
   const [getting, setGetting] = useState(false);
   const token =
-    'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInNjb3BlcyI6IlJPTEVfU1VQRVJfQURNSU4iLCJ1bml0IjoiMSIsImlkIjoxNTA3NDIsIkZVTExfTkFNRSI6IkFkbWluIiwiaWF0IjoxNjExMjc3NzYwLCJleHAiOjE2MTEzNjQxNjB9.9y70naixEyXdSzL-CrbHvIH_Mge_3m0IBDvbC-CP5ZA';
+    'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInNjb3BlcyI6IlJPTEVfU1VQRVJfQURNSU4iLCJ1bml0IjoiMSIsImlkIjoxNTA3NDIsIkZVTExfTkFNRSI6IkFkbWluIiwiaWF0IjoxNjExNzExMzY3LCJleHAiOjE2MTE3OTc3Njd9.zED_nwxtzrKnuzc12g0pnouXcFhwhxf1rJw4QPj8YFA';
   const getCourse = async () => {
     await axios
       .post(
